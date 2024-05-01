@@ -1,0 +1,3 @@
+C:/Users/adobr/CLionProjects/acrios/cmake-build-debug/CMakeFiles/acrios.dir
+C:/Users/adobr/CLionProjects/acrios/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/adobr/CLionProjects/acrios/cmake-build-debug/CMakeFiles/rebuild_cache.dir
