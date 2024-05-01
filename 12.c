@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include "12.h"
 
-int main(void) {
+int twelve() {
     FILE *file;
     char line[50];
 
@@ -12,12 +10,12 @@ int main(void) {
         return 1;
     }
 
-    int i, iDot, length, result = 0;
+    int i, j, iDot, length, result = 0;
     while (fgets(line, 50, file)) {
         printf("%s\n", line);
 
         i = 0;
-        iDot = 0;
+        iDot = -1;
         length = 0;
         result = 0;
         bool hashtag = false;
@@ -32,18 +30,26 @@ int main(void) {
                 length = 0;
             } else if (line[i] == '#') {
                 hashtag = true;
-                number -= 1;
+                number--;
                 if (iDot >= 0) {
                     length = i - iDot - 1;
                 } else {
-                    length = i;
+                    if (i > number) {
+                        length = number;
+                    } else {
+                        length = i;
+                    }
                 }
                 i++;
-                while (line[i] == '?' || line[i] == '#') {
-                    if (line[i] == '?') {
+                j = i;
+                while ((line[j] == '?' || line[j] == '#') && j-i < number) {
+                    if (line[j] == '?') {
                         length++;
+                    } else {
+                        number--;
+                        length = j-i;
                     }
-                    i++;
+                    j++;
                 }
                 result = length - number + 1;
                 break;

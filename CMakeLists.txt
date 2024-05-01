@@ -5,4 +5,5 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(acrios main.c
         12.c
+        12.h
 )
